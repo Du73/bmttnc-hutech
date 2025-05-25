@@ -8,9 +8,9 @@ class RailFenceCipher:
         direction = 1
         for char in plain_text:
             rails[rail_index].append(char)
-            if rail_index == 0:
+            if rail_index == 0 and direction == -1:
                 direction = 1
-            elif rail_index == numb_rails - 1:
+            elif rail_index == numb_rails - 1 and direction == 1:
                 direction = -1
             rail_index += direction
         cipher_text = ''.join([''.join(rail) for rail in rails])
@@ -24,16 +24,16 @@ class RailFenceCipher:
         
         for _ in range(len(cipher_text)):
             rail_lengths[rail_index] += 1
-            if rail_index == 0:
+            if rail_index == 0 and direction == -1:
                 direction = 1
-            elif rail_index == num_rails - 1:
+            elif rail_index == num_rails - 1 and direction == 1:
                 direction = -1
             rail_index += direction
             
         rails = []
         start = 0
         for length in rail_lengths:
-            rails.append(list(cipher_text[start:start + length]))
+            rails.append(cipher_text[start:start + length])
             start += length
             
         plain_text = ""
@@ -41,10 +41,11 @@ class RailFenceCipher:
         direction = 1
         
         for _ in range(len(cipher_text)):
-            plain_text += rails[rail_index].pop(0)
-            if rail_index == 0:
+            plain_text += rails[rail_index][0]
+            rails[rail_index] = rails[rail_index][1:]
+            if rail_index == 0 and direction == -1:
                 direction = 1
-            elif rail_index == num_rails - 1:
+            elif rail_index == num_rails - 1 and direction == 1:
                 direction = -1
             rail_index += direction
         return plain_text
