@@ -11,10 +11,12 @@
     <div class="container mt-5">
         <img src="https://file1.hutech.edu.vn/file/editor/homepage/stories/hinh34/logo%20CMYK-01.png" alt="logo hutech" class="d-block mx-auto" style="width: 30%;">
         <h4 class="fw-bold text-center mt-3">BÀI THỰC HÀNH BẢO MẬT THÔNG TIN NÂNG CAO</h4>
-        <h4 class="fw-bold text-center mt-3">NGUYỄN KHÁNH HUÂN - 2280601086</h4>
+        <h4 class="fw-bold text-center mt-3">NGUYỄN KHÁNH HUÂN - 2280601086 HELLO WORLD</h4>
         <ul class="list-unstyled mt-4">
-            <li><a href="{{ url_for('caesar') }}" class="btn btn-primary d-block mb-2">Caesar Cipher</a></li>
-            <li><a href="./rsa" class="btn btn-secondary d-block">RSA Cipher</a></li>
+            <li><a href="{{ url_for('caesar') }}" class="btn btn-primary d-block">Caesar Cipher</a></li>
+            <li><a href="{{ url_for('vigenere') }}" class="btn btn-success d-block mt-2">Vigenère Cipher</a></li>
+            <li><a href="{{ url_for('railfence') }}" class="btn btn-warning d-block mt-2">Rail Fence Cipher</a></li>
+            <li><a href="{{ url_for('playfair') }}" class="btn btn-info d-block mt-2">Playfair Cipher</a></li>
         </ul>
     </div>
     <!-- Bootstrap JS (optional, for interactive components) -->
